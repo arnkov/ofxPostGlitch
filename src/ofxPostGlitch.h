@@ -10,16 +10,14 @@
 
 #include "ofMain.h"
 
-#define GLITCH_NUM 17
+#define GLITCH_NUM 15
 
 enum ofxPostGlitchType{
 	OFXPOSTGLITCH_CONVERGENCE,
-	OFXPOSTGLITCH_GLOW,
 	OFXPOSTGLITCH_SHAKER,
 	OFXPOSTGLITCH_CUTSLIDER,
 	OFXPOSTGLITCH_TWIST,
 	OFXPOSTGLITCH_OUTLINE,
-	OFXPOSTGLITCH_NOISE,
 	OFXPOSTGLITCH_SLITSCAN,
 	OFXPOSTGLITCH_SWELL,
 	OFXPOSTGLITCH_INVERT,
@@ -36,24 +34,42 @@ class ofxPostGlitch{
 public:
 
 	ofxPostGlitch(){
+		
 		targetBuffer = NULL;
-		shader[0].load("Shaders/convergence");
-		shader[1].load("Shaders/glow");
-		shader[2].load("Shaders/shaker");
-		shader[3].load("Shaders/cut_slider");
-		shader[4].load("Shaders/twist");
-		shader[5].load("Shaders/outline");
-		shader[6].load("Shaders/noise");
-		shader[7].load("Shaders/slitscan");
-		shader[8].load("Shaders/swell");
-		shader[9].load("Shaders/invert");
-		shader[10].load("Shaders/crHighContrast");
-		shader[11].load("Shaders/crBlueraise");
-		shader[12].load("Shaders/crRedraise");
-		shader[13].load("Shaders/crGreenraise");
-		shader[14].load("Shaders/crRedinvert");
-		shader[15].load("Shaders/crBlueinvert");
-		shader[16].load("Shaders/crGreeninvert");
+
+	if(ofIsGLProgrammableRenderer()){
+		shader[0].load("shaders/gl3/convergence");
+		shader[1].load("shaders/gl3/shaker");
+		shader[2].load("shaders/gl3/cut_slider");
+		shader[3].load("shaders/gl3/twist");
+		shader[4].load("shaders/gl3/outline");
+		shader[5].load("shaders/gl3/slitscan");
+		shader[6].load("shaders/gl3/swell");
+		shader[7].load("shaders/gl3/invert");
+		shader[8].load("shaders/gl3/crHighContrast");
+		shader[9].load("shaders/gl3/crBlueraise");
+		shader[10].load("shaders/gl3/crRedraise");
+		shader[11].load("shaders/gl3/crGreenraise");
+		shader[12].load("shaders/gl3/crRedinvert");
+		shader[13].load("shaders/gl3/crBlueinvert");
+		shader[14].load("shaders/gl3/crGreeninvert");
+	}else{
+		shader[0].load("shaders/gl2/convergence");
+		shader[1].load("shaders/gl2/shaker");
+		shader[2].load("shaders/gl2/cut_slider");
+		shader[3].load("shaders/gl2/twist");
+		shader[4].load("shaders/gl2/outline");
+		shader[5].load("shaders/gl2/slitscan");
+		shader[6].load("shaders/gl2/swell");
+		shader[7].load("shaders/gl2/invert");
+		shader[8].load("shaders/gl2/crHighContrast");
+		shader[9].load("shaders/gl2/crBlueraise");
+		shader[10].load("shaders/gl2/crRedraise");
+		shader[11].load("shaders/gl2/crGreenraise");
+		shader[12].load("shaders/gl2/crRedinvert");
+		shader[13].load("shaders/gl2/crBlueinvert");
+		shader[14].load("shaders/gl2/crGreeninvert");
+		}
 	}
 
 	/* Initialize & set target Fbo */
