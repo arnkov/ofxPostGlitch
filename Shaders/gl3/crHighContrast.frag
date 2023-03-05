@@ -3,7 +3,6 @@
 uniform sampler2DRect tex0;
 uniform float rand;
 uniform int range;
-uniform vec2 u_resolution;
 
 in vec2 pos;
 out vec4 outColor;

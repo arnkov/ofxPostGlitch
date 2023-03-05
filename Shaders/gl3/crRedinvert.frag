@@ -1,15 +1,17 @@
-uniform sampler2DRect image;
+#version 150
+
+uniform sampler2DRect tex0;
 uniform float rand;
 uniform int range;
 
-in vec3 pos;
+in vec2 pos;
 out vec4 outColor;
 
 void main (void)
 {
     float e = 2.718281828459045235360287471352;
     vec2 texCoord = vec2(pos.x , pos.y);
-    vec4 col = texture2DRect(image,texCoord);
+    vec4 col = texture2DRect(tex0,texCoord);
     
     vec3 k =   vec3(0.4,0.2,0.2);
     vec3 min = vec3(1.0,0.0,0.0);
