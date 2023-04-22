@@ -1,1 +1,1 @@
-Lazy update for maxillacult's ofxPostGlitch to work with openFrameworks programmable renderer. Some other minor changes to some shaders.
+Lazy update for maxillacult's ofxPostGlitch to work with openFrameworks programmable renderer. Some other minor changes to some shaders. Skipped the blurry shader due to framedrops on intel integrated graphics. Only meant to use with Theia. 
